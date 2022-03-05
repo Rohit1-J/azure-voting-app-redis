@@ -19,5 +19,18 @@ pipeline {
                 """)
             }
         }
+        stage('Docker push') {
+            steps {
+                echo "Workspace is $WORKSPACE"
+                dir("$WORKSPACE/azure-vote"){
+                    script{
+                        docker.withRegistry("https://index.docker.io/v1", 'Dockerhub'){
+                            def image = docker.build('rohit1/jenkins-pipeline:latest')
+                            image.push()
+                        }
+                    }
+                }
+            }
+        }
     }
 }
