@@ -14,6 +14,8 @@ pipeline {
                     cd azure-vote
                     /usr/local/bin/docker build -t jenkins-pipeline .
                     /usr/local/bin/docker images -a
+                    cd ..
+                    env
                 """)
             }
         }
