@@ -26,9 +26,10 @@ pipeline {
                     script{
                         
                         // docker.withRegistry("https://index.docker.io/v1", 'Dockerhub'){
+                        docker.withRegistry("https://docker.io", 'Dockerhub'){
                             def image = docker.build('rohit1/jenkins-pipeline:latest')
                             image.push()
-                        // }
+                        }
                     }
                 }
             }
