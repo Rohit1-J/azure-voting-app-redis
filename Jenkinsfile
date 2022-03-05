@@ -12,7 +12,7 @@ pipeline {
                 sh(script: '/usr/local/bin/docker images -a')
                 sh(script: """
                     cd azure-vote
-                    /usr/local/bin/docker build -t jenkins-pipeline .
+                    /usr/local/bin/docker build -t rohit1/jenkins-pipeline .
                     /usr/local/bin/docker images -a
                     cd ..
                     env
